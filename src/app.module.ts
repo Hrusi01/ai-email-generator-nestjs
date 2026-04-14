@@ -23,7 +23,7 @@ import { AiModule } from './ai/ai.module';
       inject: [ConfigService],
     }),
 
-    // Rate limiting: 5 requests per 30 seconds (same as original)
+ 
     ThrottlerModule.forRoot({
       throttlers: [
         {

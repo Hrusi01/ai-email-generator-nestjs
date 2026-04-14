@@ -20,12 +20,11 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files
-.env*
 !.env.example
 
 # IDE
-.vscode
 .idea
 
 # typescript
 *.tsbuildinfo
+config.bat

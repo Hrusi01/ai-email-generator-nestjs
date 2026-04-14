@@ -15,10 +15,6 @@ import { ReplyThreadDto } from './dto/reply-thread.dto';
 export class ThreadsController {
   constructor(private readonly threadsService: ThreadsService) {}
 
-  /**
-   * POST /api/threads
-   * Create a new email thread with an AI-generated email.
-   */
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async createThread(@Body() createThreadDto: CreateThreadDto) {
@@ -30,29 +26,20 @@ export class ThreadsController {
     );
   }
 
-  /**
-   * GET /api/threads
-   * List all email threads.
-   */
+
   @Get()
   async getAllThreads() {
     const threads = await this.threadsService.getThreads();
     return { threads };
   }
 
-  /**
-   * GET /api/threads/:threadId
-   * Get the details of a specific thread with all messages.
-   */
+  
   @Get(':threadId')
   async getThread(@Param('threadId') threadId: string) {
     return this.threadsService.getThreadDetails(threadId);
   }
 
-  /**
-   * POST /api/threads/:threadId/reply
-   * Reply to an existing thread with context-aware AI generation.
-   */
+ 
   @Post(':threadId/reply')
   @HttpCode(HttpStatus.CREATED)
   async replyToThread(
